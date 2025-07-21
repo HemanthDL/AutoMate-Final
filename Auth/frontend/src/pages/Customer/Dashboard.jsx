@@ -47,7 +47,9 @@ const CustomerDashboard = () => {
 
   const fetchShopDetail = async () => {
     try {
+      console.log("inside fetch shop")
       await shopDetail();
+      console.log("inside fetch shop",shop)
     } catch (error) {
       toast.error(error.message || "Error in fetching shop information");
     }
@@ -137,6 +139,7 @@ const CustomerDashboard = () => {
   const handleCards = async (cardName) => {
     if (cardName === "shoplist") {
       setcardStatus('shoplist')
+      console.log("shop details clicked: shop :  ",shop)
       await fetchShopDetail();
     }
     else if (cardName === "pending") {

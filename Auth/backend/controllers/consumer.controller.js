@@ -23,6 +23,8 @@ export const getAllShopList = async (req, res) => {
             throw new Error("Error in fetching...")
         }
 
+        console.log("inside shop fetch : ")
+
         return res.status(200).json({
             shopList: allShop,
             success: true,

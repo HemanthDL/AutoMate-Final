@@ -9,12 +9,13 @@ global state management solution
 import { create } from "zustand"
 import axios from "axios"
 
-// const API_URL = import.meta.env.MODE === "development" ? "http://localhost:1972/api" : "/api"
-const API_URL = "https://automate-final.onrender.com/api"
-const Customer_URL = "http://localhost:1972/api/consumer"
+const API_URL = import.meta.env.MODE === "development" ? "http://localhost:1972/api" : "/api"
+// const API_URL = "https://automate-final.onrender.com/api"
+// const Customer_URL = "http://localhost:1972/api/consumer"
 
 axios.defaults.withCredentials = true
 
+console.log("API_URL = ", API_URL)
 
 export const useAuthStore = create((set) => ({
     user: {},
@@ -120,8 +121,11 @@ export const useAuthStore = create((set) => ({
         set({ isLoading: true, error: null })
 
         try {
+            console.log("inside shop : ",API_URL)
             // const response = await axios.get(`http://localhost:1972/api/consumer/view-bill/${id}`)
             const response = await axios.get(`${API_URL}/consumer/shoplist`, { withCredentials: true })
+            
+            console.log("inside shop : ",response.data)
 
             set({
                 shop: response.data.shopList,

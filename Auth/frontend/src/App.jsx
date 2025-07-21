@@ -42,6 +42,10 @@ const ProtectedRoute = ({ children }) => {
 const RedirectAuthenticatedUser = ({ children }) => {
   const { isAuthenticated, user } = useAuthStore()
 
+  console.log("INside redirect : isauth ",isAuthenticated);
+  console.log("user : ",user);
+  console.log("user role : ",user?.role?.toLowerCase());
+
   if (isAuthenticated && user && user.isverified) {
     switch (user.role.toLowerCase()) {
       case "customer":
