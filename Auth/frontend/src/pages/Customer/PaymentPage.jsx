@@ -127,7 +127,7 @@ const PaymentForm = ({ amount, mechanicId, vehicleRegNumber, billId , bookslotId
         // console.log("book id : ",bookslotId)
 
         try {
-            const response = await axios.post('http://localhost:1972/api/consumer/payment', {
+            const response = await axios.post('/api/consumer/payment', {
                 billId,
             });
 

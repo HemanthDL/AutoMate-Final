@@ -28,7 +28,7 @@ function ShopMap({ shopDetail, userLoc }) {
 
   const fetchRoute = async (shopDetail) => {
     try {
-      const res = await axios.post("http://localhost:1972/api/consumer/get-route", {
+      const res = await axios.post("/api/consumer/get-route", {
         user: { lat: userLoc.lat, lon: userLoc.lng },
         shop: {
           lat: shopDetail.location.coordinates[1],
